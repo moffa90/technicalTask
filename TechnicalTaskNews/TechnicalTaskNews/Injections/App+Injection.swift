@@ -10,8 +10,14 @@ import Resolver
 
 extension Resolver: ResolverRegistering {
     public static func registerAllServices() {
-        register { RepositoryPost() }
-        register { NewsViewModel() }
-        register { PersistenceController.shared.container.viewContext }
+        register {
+            RepositoryPost()
+        }
+        register {
+            NewsViewModel()
+        }
+        register {
+            PersistenceController.shared.container.viewContext
+        }
     }
 }

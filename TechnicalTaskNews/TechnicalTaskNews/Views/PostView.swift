@@ -17,11 +17,11 @@ struct Post: View {
             VStack(alignment: .leading, spacing: 8.0) {
                 Text(title).font(.headline)
                 Text("\(author) - \(date)")
-                    .font(.footnote)
-                    .foregroundColor(.secondary)
+                        .font(.footnote)
+                        .foregroundColor(.secondary)
             }
         }
-        .padding()
+                .padding()
     }
 }
 
@@ -39,13 +39,13 @@ extension Post {
 struct NewsView_Previews: PreviewProvider {
     static var previews: some View {
         Post(post: DomainPost(
-            id: "",
-            storyTitle: "Story Title",
-            title: "Title",
-            author: "Jose Moffa",
-            url: "https://www.google.com",
-            createdAtI: 1636152795
+                id: "",
+                storyTitle: "Story Title",
+                title: "Title",
+                author: "Jose Moffa",
+                url: "https://www.google.com",
+                createdAtI: 1636152795
         ))
-            .previewLayout(.sizeThatFits)
+                .previewLayout(.sizeThatFits)
     }
 }

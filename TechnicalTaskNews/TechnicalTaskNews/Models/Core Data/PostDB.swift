@@ -32,7 +32,7 @@ extension PostDB {
         fetchRequest = PostDB.fetchRequest()
 
         fetchRequest.predicate = NSPredicate(
-            format: "objectId = %@", objectId
+                format: "objectId = %@", objectId
         )
         fetchRequest.fetchLimit = 1
 

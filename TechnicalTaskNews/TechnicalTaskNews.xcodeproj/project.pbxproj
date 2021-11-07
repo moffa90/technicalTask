@@ -120,7 +120,6 @@
 		65E18A8C27361EEC00058847 = {
 			isa = PBXGroup;
 			children = (
-				654BC5B727379FF30009DC2F /* Injections */,
 				65E18A9727361EEC00058847 /* TechnicalTaskNews */,
 				65E18AAD27361EEE00058847 /* TechnicalTaskNewsTests */,
 				65E18AB727361EEE00058847 /* TechnicalTaskNewsUITests */,
@@ -141,6 +140,7 @@
 		65E18A9727361EEC00058847 /* TechnicalTaskNews */ = {
 			isa = PBXGroup;
 			children = (
+				654BC5B727379FF30009DC2F /* Injections */,
 				65441F332737188600C28858 /* Info.plist */,
 				65E18AD927363AB600058847 /* Resources */,
 				65E18AD52736377E00058847 /* Library */,

@@ -9,6 +9,7 @@ import Foundation
 import Resolver
 
 class NewsViewModel: ObservableObject {
+
     @Published var postsList: [DomainPost] = []
     @Injected private var repository: RepositoryPost
 

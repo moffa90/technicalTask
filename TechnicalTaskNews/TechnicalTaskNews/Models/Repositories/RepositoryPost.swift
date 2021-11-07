@@ -34,13 +34,13 @@ struct RepositoryPost: Repository {
             if news != nil {
                 news!.hits.forEach { hit in
                     _ = PostDB(
-                        objectId: hit.objectID,
-                        title: hit.title,
-                        storyTitle: hit.storyTitle,
-                        url: hit.storyURL,
-                        author: hit.author,
-                        createdAtI: Int64(hit.createdAtI),
-                        context: context
+                            objectId: hit.objectID,
+                            title: hit.title,
+                            storyTitle: hit.storyTitle,
+                            url: hit.storyURL,
+                            author: hit.author,
+                            createdAtI: Int64(hit.createdAtI),
+                            context: context
                     )
                 }
 
@@ -53,14 +53,14 @@ struct RepositoryPost: Repository {
 
             for dbPost in PostDB.getAll(context: context) {
                 domainPosts.append(
-                    DomainPost(
-                        id: dbPost.objectId!,
-                        storyTitle: dbPost.storyTitle,
-                        title: dbPost.title,
-                        author: dbPost.author ?? "",
-                        url: dbPost.url,
-                        createdAtI: Int(dbPost.createdAtI)
-                    )
+                        DomainPost(
+                                id: dbPost.objectId!,
+                                storyTitle: dbPost.storyTitle,
+                                title: dbPost.title,
+                                author: dbPost.author ?? "",
+                                url: dbPost.url,
+                                createdAtI: Int(dbPost.createdAtI)
+                        )
                 )
                 completionHandler(domainPosts, nil)
             }
