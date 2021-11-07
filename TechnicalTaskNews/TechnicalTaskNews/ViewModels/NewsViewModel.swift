@@ -6,17 +6,18 @@
 //
 
 import Foundation
+import Resolver
 
 class NewsViewModel: ObservableObject {
     @Published var postsList: [DomainPost] = []
-    
-    func getPosts(){
-        let repository = RepositoryPost()
+    @Injected private var repository: RepositoryPost
+
+    func getPosts() {
         repository.list { posts, error in
-            if let e = error {
-                print(e)
+            if error != nil {
+                print(error!)
             }
-            
+
             if let list = posts {
                 DispatchQueue.main.async {
                     self.postsList = list
@@ -24,10 +25,14 @@ class NewsViewModel: ObservableObject {
             }
         }
     }
-    
-    func deletePost(post: DomainPost){
-        DispatchQueue.main.async {
-            self.postsList.removeAll(where: { $0.id == post.id })
+
+    func deletePost(post: DomainPost) {
+        repository.delete(post) { error in
+            if error == nil {
+                DispatchQueue.main.async {
+                    self.postsList.removeAll(where: { $0.id == post.id })
+                }
+            }
         }
     }
 }

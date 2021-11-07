@@ -8,11 +8,12 @@
 import Foundation
 
 // MARK: - DomainNews
-struct DomainPost: Identifiable {
+struct DomainPost: Identifiable, Hashable {
     var id: String
-    
+
     let storyTitle: String?
     let title: String?
     let author: String
-    let created_at_i: Int
+    let url: String?
+    let createdAtI: Int
 }

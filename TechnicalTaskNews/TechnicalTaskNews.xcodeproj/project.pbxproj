@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		65E18A9927361EEC00058847 /* TechnicalTaskNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E18A9827361EEC00058847 /* TechnicalTaskNewsApp.swift */; };
-		65E18A9B27361EEC00058847 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E18A9A27361EEC00058847 /* ContentView.swift */; };
+		654BC5A9273792850009DC2F /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BC5A8273792850009DC2F /* WebView.swift */; };
+		654BC5AB273792F90009DC2F /* PostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BC5AA273792F90009DC2F /* PostView.swift */; };
+		654BC5B92737A00F0009DC2F /* App+Injection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BC5B82737A00F0009DC2F /* App+Injection.swift */; };
+		654BC5BC2737A0B30009DC2F /* Resolver in Frameworks */ = {isa = PBXBuildFile; productRef = 654BC5BB2737A0B30009DC2F /* Resolver */; };
+		654BC5BE2737A5090009DC2F /* PostDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 654BC5BD2737A5090009DC2F /* PostDB.swift */; };
+		65E18A9927361EEC00058847 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E18A9827361EEC00058847 /* App.swift */; };
 		65E18A9D27361EEE00058847 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E18A9C27361EEE00058847 /* Assets.xcassets */; };
 		65E18AA027361EEE00058847 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65E18A9F27361EEE00058847 /* Preview Assets.xcassets */; };
 		65E18AA227361EEE00058847 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E18AA127361EEE00058847 /* Persistence.swift */; };
@@ -44,9 +48,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		65441F332737188600C28858 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		654BC5A8273792850009DC2F /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		654BC5AA273792F90009DC2F /* PostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostView.swift; sourceTree = "<group>"; };
+		654BC5B82737A00F0009DC2F /* App+Injection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "App+Injection.swift"; sourceTree = "<group>"; };
+		654BC5BD2737A5090009DC2F /* PostDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDB.swift; sourceTree = "<group>"; };
 		65E18A9527361EEC00058847 /* TechnicalTaskNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TechnicalTaskNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		65E18A9827361EEC00058847 /* TechnicalTaskNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicalTaskNewsApp.swift; sourceTree = "<group>"; };
-		65E18A9A27361EEC00058847 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		65E18A9827361EEC00058847 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		65E18A9C27361EEE00058847 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65E18A9F27361EEE00058847 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		65E18AA127361EEE00058847 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -71,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				654BC5BC2737A0B30009DC2F /* Resolver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,9 +100,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		654BC5A72737869A0009DC2F /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				65E18AA127361EEE00058847 /* Persistence.swift */,
+				654BC5BD2737A5090009DC2F /* PostDB.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		654BC5B727379FF30009DC2F /* Injections */ = {
+			isa = PBXGroup;
+			children = (
+				654BC5B82737A00F0009DC2F /* App+Injection.swift */,
+			);
+			path = Injections;
+			sourceTree = "<group>";
+		};
 		65E18A8C27361EEC00058847 = {
 			isa = PBXGroup;
 			children = (
+				654BC5B727379FF30009DC2F /* Injections */,
 				65E18A9727361EEC00058847 /* TechnicalTaskNews */,
 				65E18AAD27361EEE00058847 /* TechnicalTaskNewsTests */,
 				65E18AB727361EEE00058847 /* TechnicalTaskNewsUITests */,
@@ -114,13 +141,12 @@
 		65E18A9727361EEC00058847 /* TechnicalTaskNews */ = {
 			isa = PBXGroup;
 			children = (
+				65441F332737188600C28858 /* Info.plist */,
 				65E18AD927363AB600058847 /* Resources */,
 				65E18AD52736377E00058847 /* Library */,
-				65E18A9A27361EEC00058847 /* ContentView.swift */,
 				65E18AC8273621E000058847 /* Models */,
-				65E18AA127361EEE00058847 /* Persistence.swift */,
 				65E18A9E27361EEE00058847 /* Preview Content */,
-				65E18A9827361EEC00058847 /* TechnicalTaskNewsApp.swift */,
+				65E18A9827361EEC00058847 /* App.swift */,
 				65E18AC9273621EB00058847 /* ViewModels */,
 				65E18AC7273621D500058847 /* Views */,
 			);
@@ -156,6 +182,8 @@
 			isa = PBXGroup;
 			children = (
 				65E18ADA27363B0900058847 /* NewsView.swift */,
+				654BC5A8273792850009DC2F /* WebView.swift */,
+				654BC5AA273792F90009DC2F /* PostView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -163,6 +191,7 @@
 		65E18AC8273621E000058847 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				654BC5A72737869A0009DC2F /* Core Data */,
 				65E18AD427362F8700058847 /* Data Mapping */,
 				65E18ACB273629BF00058847 /* Domains */,
 				65E18ACA273629B300058847 /* Repositories */,
@@ -239,12 +268,16 @@
 				65E18A9127361EEC00058847 /* Sources */,
 				65E18A9227361EEC00058847 /* Frameworks */,
 				65E18A9327361EEC00058847 /* Resources */,
+				654BC5A62737790E0009DC2F /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = TechnicalTaskNews;
+			packageProductDependencies = (
+				654BC5BB2737A0B30009DC2F /* Resolver */,
+			);
 			productName = TechnicalTaskNews;
 			productReference = 65E18A9527361EEC00058847 /* TechnicalTaskNews.app */;
 			productType = "com.apple.product-type.application";
@@ -317,6 +350,9 @@
 				Base,
 			);
 			mainGroup = 65E18A8C27361EEC00058847;
+			packageReferences = (
+				654BC5BA2737A0B30009DC2F /* XCRemoteSwiftPackageReference "Resolver" */,
+			);
 			productRefGroup = 65E18A9627361EEC00058847 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -354,6 +390,26 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		654BC5A62737790E0009DC2F /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		65E18A9127361EEC00058847 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -366,11 +422,14 @@
 				65E18AD327362F7F00058847 /* News.swift in Sources */,
 				65E18AD127362DA600058847 /* RepositoryPost.swift in Sources */,
 				65E18ADD27363B7900058847 /* NewsViewModel.swift in Sources */,
-				65E18A9B27361EEC00058847 /* ContentView.swift in Sources */,
 				65E18ADF27364FD100058847 /* DateExt.swift in Sources */,
-				65E18A9927361EEC00058847 /* TechnicalTaskNewsApp.swift in Sources */,
+				65E18A9927361EEC00058847 /* App.swift in Sources */,
+				654BC5A9273792850009DC2F /* WebView.swift in Sources */,
 				65E18ACD27362A1F00058847 /* DomainPost.swift in Sources */,
+				654BC5AB273792F90009DC2F /* PostView.swift in Sources */,
 				65E18ACF27362D3700058847 /* Repository.swift in Sources */,
+				654BC5B92737A00F0009DC2F /* App+Injection.swift in Sources */,
+				654BC5BE2737A5090009DC2F /* PostDB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +593,7 @@
 				DEVELOPMENT_TEAM = 5HB8EZ8TX3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TechnicalTaskNews/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -563,6 +623,7 @@
 				DEVELOPMENT_TEAM = 5HB8EZ8TX3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TechnicalTaskNews/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -717,6 +778,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		654BC5BA2737A0B30009DC2F /* XCRemoteSwiftPackageReference "Resolver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hmlongco/Resolver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		654BC5BB2737A0B30009DC2F /* Resolver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 654BC5BA2737A0B30009DC2F /* XCRemoteSwiftPackageReference "Resolver" */;
+			productName = Resolver;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		65E18AA327361EEE00058847 /* TechnicalTaskNews.xcdatamodeld */ = {

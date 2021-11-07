@@ -8,21 +8,21 @@
 import Combine
 
 protocol Repository {
-    associatedtype T
-    
-    func get(id: Int, completionHandler:  @escaping (T?, Error?) -> Void)
-    func list(completionHandler:  @escaping ([T]?, Error?) -> Void)
-    func add(_ item: T, completionHandler:  @escaping (Error?) -> Void)
-    func delete(_ item: T, completionHandler:  @escaping (Error?) -> Void)
-    func edit(_ item: T, completionHandler:  @escaping (Error?) -> Void)
+    associatedtype Generic
+
+    func get(id: Int, completionHandler: @escaping (Generic?, Error?) -> Void)
+    func list(completionHandler: @escaping ([Generic]?, Error?) -> Void)
+    func add(_ item: Generic, completionHandler: @escaping (Error?) -> Void)
+    func delete(_ item: Generic, completionHandler: @escaping (Error?) -> Void)
+    func edit(_ item: Generic, completionHandler: @escaping (Error?) -> Void)
 }
 
 protocol CombineRepository {
-    associatedtype T
-    
-    func get(id: Int) -> AnyPublisher<T, Error>
-    func list() -> AnyPublisher<[T], Error>
-    func add(_ item: T) -> AnyPublisher<Void, Error>
-    func delete(_ item: T) -> AnyPublisher<Void, Error>
-    func edit(_ item: T) -> AnyPublisher<Void, Error>
+    associatedtype Generic
+
+    func get(id: Int) -> AnyPublisher<Generic, Error>
+    func list() -> AnyPublisher<[Generic], Error>
+    func add(_ item: Generic) -> AnyPublisher<Void, Error>
+    func delete(_ item: Generic) -> AnyPublisher<Void, Error>
+    func edit(_ item: Generic) -> AnyPublisher<Void, Error>
 }

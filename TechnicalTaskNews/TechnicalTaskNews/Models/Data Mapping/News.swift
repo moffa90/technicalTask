@@ -29,7 +29,7 @@ struct Hit: Codable {
     let tags: [String]
     let objectID: String
     let highlightResult: HighlightResult
-    
+
     enum CodingKeys: String, CodingKey {
         case createdAt = "created_at"
         case title, url, author, points
@@ -51,7 +51,7 @@ struct Hit: Codable {
 struct HighlightResult: Codable {
     let author, commentText, storyTitle, storyURL: Author?
     let title, url: Author?
-    
+
     enum CodingKeys: String, CodingKey {
         case author
         case commentText = "comment_text"
@@ -70,11 +70,10 @@ struct Author: Codable {
 }
 
 enum MatchLevel: String, Codable {
-    case full = "full"
-    case none = "none"
+    case full
+    case none
 }
 
 enum Query: String, Codable {
-    case mobile = "mobile"
+    case mobile
 }
-
