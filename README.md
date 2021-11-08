@@ -23,9 +23,9 @@
 
 - [x] Pull to refresh
 - [x] Delete unwanted post
-- [x] Persist data
+- [x] Persistent data
 - [x] Refresh on startup
-- [x] Webview post detail
+- [x] View post information
 
 ## Requirements
 
