@@ -13,14 +13,22 @@ enum RepositoryError: Error {
     case notFound
 }
 
-struct RepositoryPost: Repository {
-    typealias Generic = DomainPost
+/// Protocol with basic actions for repositories
+protocol PostDataSource {
+    func list(completionHandler: @escaping ([DomainPost]?, Error?) -> Void)
+    func delete(_ item: DomainPost, completionHandler: @escaping (Error?) -> Void)
+}
 
-    @Injected var context: NSManagedObjectContext
+/// Repository implementation for Posts
+struct PostRepository: PostDataSource {
 
-    func get(id: Int, completionHandler: @escaping (DomainPost?, Error?) -> Void) {
-    }
+    /// Context for Core data
+    @Injected private var context: NSManagedObjectContext
+}
 
+extension PostRepository {
+    /// Fetch all the non hidden Post from repository
+    /// - Parameter completionHandler: Action to perform on complete operation
     func list(completionHandler: @escaping ([DomainPost]?, Error?) -> Void) {
         let url = URL(string: "https://hn.algolia.com/api/v1/search_by_date?query=mobile")!
 
@@ -69,9 +77,10 @@ struct RepositoryPost: Repository {
         task.resume()
     }
 
-    func add(_ item: DomainPost, completionHandler: @escaping (Error?) -> Void) {
-    }
-
+    /// Delete the given Post from the repository
+    /// - Parameters:
+    ///   - item: Post to delete
+    ///   - completionHandler: Action to perform on complete operation
     func delete(_ item: DomainPost, completionHandler: @escaping (Error?) -> Void) {
         do {
             if let dbPost = PostDB.getFirst(objectId: item.id, context: context) {
@@ -82,8 +91,5 @@ struct RepositoryPost: Repository {
         } catch {
             completionHandler(error)
         }
-    }
-
-    func edit(_ item: DomainPost, completionHandler: @escaping (Error?) -> Void) {
     }
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - DomainNews
+// MARK: - DomainPost
 struct DomainPost: Identifiable, Hashable {
     var id: String
 

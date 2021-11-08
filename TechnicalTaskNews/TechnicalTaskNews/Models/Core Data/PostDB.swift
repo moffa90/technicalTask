@@ -9,6 +9,10 @@ import Foundation
 import CoreData
 
 extension PostDB {
+
+    /// Gets all the PostDB records from db where hide == true and sorted by date desc
+    /// - Parameter context: Context for Core Data db
+    /// - Returns: List of results
     static func getAll(context: NSManagedObjectContext) -> [PostDB] {
         let fetchRequest: NSFetchRequest<PostDB>
         fetchRequest = PostDB.fetchRequest()
@@ -27,6 +31,11 @@ extension PostDB {
         }
     }
 
+    /// Gets the first PostDB from DB where it matches with the given objectId
+    /// - Parameters:
+    ///   - objectId: Given ID to apply the search
+    ///   - context: Context for Core Data db
+    /// - Returns: First result that matches with the criteria else nil
     static func getFirst(objectId: String, context: NSManagedObjectContext) -> PostDB? {
         let fetchRequest: NSFetchRequest<PostDB>
         fetchRequest = PostDB.fetchRequest()
@@ -44,6 +53,7 @@ extension PostDB {
         }
     }
 
+    /// Custom Init function to fill al the fields
     convenience init(objectId: String, title: String?, storyTitle: String?, url: String?, author: String, createdAtI: Int64, context: NSManagedObjectContext) {
         let entity = NSEntityDescription.entity(forEntityName: "PostDB", in: context)!
         self.init(entity: entity, insertInto: context)

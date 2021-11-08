@@ -8,6 +8,9 @@
 import Foundation
 
 extension Date {
+
+    /// Format the Date into a time relative string
+    /// - Returns: Time relative string, e.g., "2 days ago"
     func timeAgoDisplay() -> String {
         let formatter = RelativeDateTimeFormatter()
         formatter.unitsStyle = .full
