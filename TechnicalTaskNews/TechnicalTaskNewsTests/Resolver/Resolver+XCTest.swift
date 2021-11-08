@@ -17,6 +17,6 @@ extension Resolver {
     static func registerMockServices() {
         root = Resolver.mock
         defaultScope = .application
-        Resolver.mock.register { MockDataSource() as PostDataSource }
+        Resolver.mock.register { MockDataSource() }.implements(PostDataSource.self)
     }
 }

@@ -10,22 +10,17 @@ import Foundation
 
 class MockDataSource: PostDataSource {
 
+    var results: [DomainPost]?
+
     func list(completionHandler: @escaping ([DomainPost]?, Error?) -> Void) {
-        let posts = [mockPost()]
-        completionHandler(posts, nil)
+        guard let results = results else {
+          fatalError("Result is nil")
+        }
+
+        completionHandler(results, nil)
     }
 
     func delete(_ item: DomainPost, completionHandler: @escaping (Error?) -> Void) {
 
-    }
-
-    private func mockPost() -> DomainPost {
-        return DomainPost(
-            id: "123456789",
-            storyTitle: "New post",
-            title: nil,
-            author: "Jose Moffa",
-            url: "https://google.com",
-            createdAtI: Int(Date.now.timeIntervalSince1970))
     }
 }
