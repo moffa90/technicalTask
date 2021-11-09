@@ -21,6 +21,6 @@ class MockDataSource: PostDataSource {
     }
 
     func delete(_ item: DomainPost, completionHandler: @escaping (Error?) -> Void) {
-
+        completionHandler(nil)
     }
 }

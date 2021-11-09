@@ -24,12 +24,21 @@ class PostServiceTests: XCTestCase {
 
 // MARK: - Unit tests
 extension PostServiceTests {
-    func test_GetPosts() {
+    func testGetPost() {
         let sut: PostService = PostService()
         postDataSource.results = [mockPost()]
+
         sut.getPosts()
         XCTAssertEqual(sut.postsList.count, 1)
         XCTAssertEqual(sut.postsList.first, mockPost())
+    }
+
+    func testDeletePost() {
+        let sut: PostService = PostService()
+        sut.postsList = [mockPost()]
+
+        sut.deletePost(post: mockPost())
+        XCTAssertEqual(sut.postsList.count, 0)
     }
 }
 
